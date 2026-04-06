@@ -1,9 +1,3 @@
-// getting the canvas which the rendering will take place on, for now ignore those cuz we are just 
-// checking the api support
-let canvas = document.getElementById("workspace-canvas");
-let context = canvas.getContext("webgpu")
-
-
 // the function that checks the support of the webgpu interface on the browser
 async function initialize_webgpu()
 {
