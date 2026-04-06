@@ -8,7 +8,7 @@ async function initialize_webgpu()
     let adapter;
 
     try {
-        adapter = await navigator.gpu.requestAdapter()
+        adapter = await navigator.gpu?.requestAdapter()
     } catch(error)
     {
         console.error(error)
@@ -19,7 +19,7 @@ async function initialize_webgpu()
         throw Error("Couldn't find WebGPU Adapter")
     }
 
-    let device = adapter.requestDevice()
+    let device = adapter?.requestDevice()
 
     if(!device)
     {
