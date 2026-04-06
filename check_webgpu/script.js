@@ -1,5 +1,9 @@
+// getting the canvas which the rendering will take place on
 let canvas = document.getElementById("workspace-canvas");
+let context = canvas.getContext("webgpu")
 
+
+// the function that checks the support of the webgpu interface on the browser
 async function initialize_webgpu()
 {
     if(!navigator.gpu) {
@@ -19,7 +23,17 @@ async function initialize_webgpu()
     {
         throw Error("Couldn't find WebGPU Adapter")
     }
+
+    let device = adapter.requestDevice()
+
+    if(!device)
+    {
+        throw Error("No Devices are available")
+    }
+
+    return device
 }
 
-
-initialize_webgpu()
+// getting the current logical gpu device the will be used for the rendering calculations
+let device = initialize_webgpu()
+console.log(device)
